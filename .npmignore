@@ -1,0 +1,12 @@
+# directories
+.production
+example
+src
+test
+
+# files
+.babelrc
+.eslintrc.json
+.gitattributes
+jest.config.js
+rollup.config.js

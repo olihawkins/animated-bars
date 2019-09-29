@@ -1,0 +1,49 @@
+{
+  "name": "animated-bars",
+  "version": "0.1.0",
+  "description": "A library for creating animated bar and column charts.",
+  "type": "module",
+  "main": "dist/animated-bars.js",
+  "module": "dist/animated-bars.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1",
+    "rollup": "rollup -c --watch",
+    "test": "jest --verbose"
+  },
+  "keywords": [
+    "animation",
+    "animate",
+    "chart",
+    "bar",
+    "column",
+    "d3"
+  ],
+  "author": "Oli Hawkins <oli@olihawkins.com> (http://olihawkins.com)",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@babel/runtime-corejs3": "^7.6.2",
+    "babel-jest": "^24.9.0",
+    "d3": "^5.12.0",
+    "eslint": "^6.4.0",
+    "eslint-plugin-jest": "^22.17.0",
+    "http-server": "^0.11.1",
+    "jest": "^24.9.0",
+    "rollup": "^1.21.4",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^6.0.3"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/olihawkins/animated-bars.git"
+    }
+}

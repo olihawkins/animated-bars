@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>2. Generators</title>
+    <style>
+
+    body {
+        font-family: sans-serif;
+        margin: 50px;
+    }
+
+    text {
+        font-size: 14px;
+        pointer-events: none;
+    }
+
+    </style>
+</head>
+<body>
+
+<!-- Page content -->
+<h1>2. Generators</h1>
+
+<p>Charts can be updated to show new values at fixed intervals using ES6 generators. Call a chart's <b>run</b> method with a generator to iterate throught a set of values. Each time the generator is called it should yield a new dataset containing new values for the same set of keys that were provided in the initial data that was used to set up the chart. The animated chart will transition between the values pulled from the generator using the <b>transitionTime</b> and <b>pauseTime</b> values set in the chart's configuration.</p>
+
+<p>This is a bar chart running a generator. It is initialised with a dataset of zeros. The chart is then updated from a generator, which yields two alternating datasets, ten times in total. The final value the generator yields is the zero dataset again. Each of the datasets specifies an incremental delay to the timing at which each value is updated, creating a fan effect as each bar moves to its next value. Some of this chart's properties have been set using a custom configuration, including its colors, key axis location, and transition time.</p>
+
+<h2>Use generators to animate chart transitions at fixed intervals</h2>
+
+<!-- The element targeted by chart -->
+<div id="example-bar-generator"></div>
+
+<!-- Load script files -->
+<script src="../../dist/animated-bars.min.js"></script>
+<script src="generators.js"></script>
+
+<p><i>These examples are written in raw ES6, which will only work in modern browsers. You should transpile ES6 code in production.</i></p>
+
+</body>
+</html>

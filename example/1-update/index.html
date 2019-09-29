@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>1. Update</title>
+    <style>
+
+    body {
+        font-family: sans-serif;
+        margin: 50px;
+    }
+
+    text {
+        font-size: 14px;
+        pointer-events: none;
+    }
+
+    </style>
+</head>
+<body>
+
+<!-- Page content -->
+<h1>1. Update</h1>
+
+<p>The simplest way to change the values shown in an animated chart is to call the chart's <b>update</b> method with new data. The new data should have the same keys as the initial data that was used to set up the chart, but with new values. Calling <b>update</b> will cause the chart to transition to the new values over an interval of time. The chart's default tranisition time is set with the configuration object's <b>transitionTime</b> property, but the the transition time can also be set for an individual transition using an optional second argument to <b>update</b>. The transition time is specified in milliseconds.<p>
+
+<p>The following chart shows the annual percentage change in average house prices in each country and region of the UK from 1987 to 2018. When a region is chosen in the select box, the chart's <b>update</b> method is called with the data for that region.</p>
+
+<h2>Choose a region to update the chart</h2>
+
+<select id="area-select">
+    <option value="england">England</option>
+    <option value="wales">Wales</option>
+    <option value="scotland">Scotland</option>
+    <option value="northern_ireland">Northern Ireland</option>
+    <option value="north_east">North East</option>
+    <option value="north_west">North West</option>
+    <option value="yorkshire_and_the_humber">Yorkshire and The Humber</option>
+    <option value="east_midlands">East Midlands</option>
+    <option value="west_midlands">West Midlands</option>
+    <option value="east_of_england">East of England</option>
+    <option value="london">London</option>
+    <option value="south_east">South East</option>
+    <option value="south_west">South West</option>
+</select>
+
+<!-- The element targeted by chart -->
+<div id="example-update-chart"></div>
+
+<!-- Load script files -->
+<script src="../../dist/animated-bars.min.js"></script>
+<script src="d3-dsv.min.js"></script>
+<script src="d3-fetch.min.js"></script>
+<script src="update.js"></script>
+
+<p><i>These examples are written in raw ES6, which will only work in modern browsers. You should transpile ES6 code in production.</i></p>
+
+</body>
+</html>

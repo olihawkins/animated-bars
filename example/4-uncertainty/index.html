@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>4. Uncertainty</title>
+    <style>
+
+    body {
+        font-family: sans-serif;
+        margin: 50px;
+    }
+
+    text {
+        font-size: 14px;
+        pointer-events: none;
+    }
+
+    </style>
+</head>
+<body>
+
+<!-- Page content -->
+<h1>4. Uncertainty</h1>
+
+<p>One possible use for an animated bar chart is an animated uncertainty chart, which can be used to show how a set of estimates surrounded by a margin of error might also have looked given their statistical uncertainty. This chart starts with a given set of estimates. Clicking on the chart animates it with a generator that yields normal random variables for each data point with a standard deviation representing its margin of error.</p>
+
+<p>This particular uncertainty chart is only suitable for certain types of data: each estimate must be independent, with known and normally distributed standard errors. You could model data that has a different error distribution using a different function for generating the randomised values.</p>
+
+<h2>Use randomly generated data to illustrate statistical uncertainty</h2>
+
+<!-- The element targeted by chart -->
+<div id="example-uncertainty-chart"></div>
+
+<!-- Load script files -->
+<script src="../../dist/animated-bars.min.js"></script>
+<script src="uncertainty.js"></script>
+
+<p><i>These examples are written in raw ES6, which will only work in modern browsers. You should transpile ES6 code in production.</i></p>
+
+</body>
+</html>

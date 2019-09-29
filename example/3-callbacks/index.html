@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>3. Callbacks</title>
+    <style>
+
+    body {
+        font-family: sans-serif;
+        margin: 50px;
+    }
+
+    text {
+        font-size: 14px;
+        pointer-events: none;
+    }
+
+    .year-label {
+        font-size: 35px;
+        font-weight: bold;
+        fill: #7dc9ff;
+    }
+
+    </style>
+</head>
+<body>
+
+<!-- Page content -->
+<h1>3. Callbacks</h1>
+
+<p>When you animate a chart by calling its <b>run</b> method with a generator, you can optionally pass a callback as its second argument, which will be called at the start of each transition. This allows you to update other aspects of the UI in lock-step with the changes to the values in the chart.</p>
+
+<p>To help you control the visual effect of these updates, <b>run</b> can take a third argument which specifies how long the callback should be delayed relative to the start of the transition. The delay is given in milliseconds and cannot be less than zero.</p>
+
+<p>The chart below shows how the age-structure of the UK population has changed over time. Specifically, it shows the number of people of each single year of age in each year from 1971 to 2018. A callback is used to update the year label in the bottom left of the chart as it animates through the age-distributions. Click on the chart to run the animation.</p>
+
+<h2>A callback is used to update the year as the data changes</h2>
+
+<!-- Load script files -->
+<script src="../../dist/animated-bars.min.js"></script>
+<script src="d3-dsv.min.js"></script>
+<script src="d3-fetch.min.js"></script>
+<script src="callbacks.js"></script>
+
+<!-- The element targeted by chart -->
+<div id="example-callback-chart"></div>
+
+<p><i>These examples are written in raw ES6, which will only work in modern browsers. You should transpile ES6 code in production.</i></p>
+
+</body>
+</html>
