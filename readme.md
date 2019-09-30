@@ -305,11 +305,13 @@ __stop__()
 Stops the chart updating from a generator.
 
 __removeKeyAxisTicks__(_tickNums_, _options = {lines: true, labels: true}_)
+
 __removeValueAxisTicks__(_tickNums_, _options = {lines: true, labels: true}_)
 
 Removes the specified ticks from the __keyAxis__ or __valueAxis__. `tickNums` is an array of numbers specifying the indexes of the ticks to be removed. The `options` argument is an optional argument that controls which elements of the ticks are removed. By default both the tick lines and the tick labels are removed for the selected ticks, but setting either option to `false` means those elements of the selected ticks are retained. This can be useful if you wish to remove some labels, while leaving all the ticks in place. Note that as these functions work by removing the tick elements from the DOM, they can only be called after the chart is created.
 
 __keepKeyAxisTicks__(_tickNums_, _options = {lines: true, labels: true}_)
+
 __keepValueAxisTicks__(_tickNums_, _options = {lines: true, labels: true}_)
 
 Removes the unspecified ticks from the __keyAxis__ or __valueAxis__. These functions have the same effect as the functions used to remove ticks, but in these functions the `tickNums` argument specifies the ticks to retain, rather than the ticks to remove. These functions are a convenience for when the number of ticks you wish to remove is larger than the number of ticks you wish to retain. Note that as these functions work by removing the tick elements from the DOM, they can only be called after the chart is created.
