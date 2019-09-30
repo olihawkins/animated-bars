@@ -1,6 +1,6 @@
 {
   "name": "animated-bars",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A library for creating animated bar and column charts.",
   "type": "module",
   "main": "dist/animated-bars.js",
@@ -41,9 +41,9 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.3"
-    },
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/olihawkins/animated-bars.git"
-    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olihawkins/animated-bars.git"
+  }
 }
