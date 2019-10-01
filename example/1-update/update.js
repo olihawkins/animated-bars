@@ -41,8 +41,8 @@ d3.csv("house-price-change-by-region.csv").then((data) => {
         valueMin: -0.2,
         valueMax: 0.4,
         valueFormat: ",.0%",
-        valuePaddingInner: 0.15,
-        valuePaddingOuter: 0.225,
+        valuePaddingInner: 0.1,
+        valuePaddingOuter: 0.2,
         valueTitleOffset: 60,
         transitionTime: 300
     };

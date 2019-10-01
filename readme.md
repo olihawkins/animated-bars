@@ -49,11 +49,11 @@ The axes of a chart are described in terms of _keys_ and _values_ rather than _x
 
 ## Example usage
 
-A detailed set of examples showing how to use the library can be found in the `examples` directory. You can see these examples running on the web [here](https://olihawkins.com/2019/09/1). The walkthrough below shows the basic steps needed to [create](#create-a-chart), [update](#update-a-chart), and [animate](#animate-a-chart-with-a-generator) a chart.
+A detailed set of examples showing how to use the library can be found in the `example` directory. You can see these examples running on the web [here](https://olihawkins.com/2019/09/1). The walkthrough below shows the basic steps needed to [create](#create-a-chart), [update](#update-a-chart), and [animate](#animate-a-chart-with-a-generator) a chart.
 
 ### Create a chart
 
-Let's create a simple animated column chart. The following example assumes you are working with `npm` but can be quickly adapted to work in the browser by following the slightly different setup instructions shown above. A version of this code using the browser library can be found in the `examples/walkthrough` directory.
+Let's create a simple animated column chart. The following example assumes you are working with `npm` but can be quickly adapted to work in the browser by following the slightly different setup instructions shown above. A version of this code using the browser library can be found in the `walkthrough` directory in `example`.
 
 Create a `<div>` element for the chart in your html.
 
