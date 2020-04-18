@@ -6,5 +6,9 @@ module.exports = {
         "^.+\\.[t|j]sx?$": "babel-jest"
     },
     coverageDirectory: "coverage",
-    collectCoverageFrom: ["src/**/*.js"]
+    collectCoverageFrom: ["src/**/*.js"],
+    // Resolve `import from 'animated-bars'` to src
+    moduleNameMapper: {
+        "^animated-bars$": "<rootDir>/src/index.js"
+    }
 };

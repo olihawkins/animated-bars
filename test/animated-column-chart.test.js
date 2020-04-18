@@ -2,7 +2,7 @@
 
 /* Imports ----------------------------------------------------------------- */
 
-import { AnimatedColumnChart } from "../src/animated-column-chart.js";
+import { AnimatedColumnChart } from "animated-bars";
 import { getConstants } from "../src/constants.js";
 
 /* Constants --------------------------------------------------------------- */

@@ -2,7 +2,7 @@
 
 /* Imports ----------------------------------------------------------------- */
 
-import { AnimatedBarChart } from "../src/animated-bar-chart.js";
+import { AnimatedBarChart } from "animated-bars";
 import { getConstants } from "../src/constants.js";
 
 /* Constants --------------------------------------------------------------- */
