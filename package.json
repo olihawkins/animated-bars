@@ -18,7 +18,9 @@
     "test-main": "jest --verbose",
     "cover": "npm run cover-main && rm -rf coverage",
     "coveralls": "npm run cover-main && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
-    "cover-main": "cross-env COVERAGE=true jest --coverage"
+    "cover-main": "cross-env COVERAGE=true jest --coverage",
+    "ci": "if [ $COVERAGE ]; then npm run coveralls; else npm run ci-main; fi",
+    "ci-main": "npm run lint && npm run build && npm run test-main"
   },
   "keywords": [
     "animation",

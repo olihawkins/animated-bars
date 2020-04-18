@@ -11,3 +11,4 @@ test
 .gitattributes
 jest.config.js
 rollup.config.js
+.travis.yml
