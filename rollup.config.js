@@ -3,18 +3,21 @@ import resolve from "@rollup/plugin-node-resolve";
 import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
 
-export default [
-    createConfig("esm"),
-    createConfig("iife")
-];
+const configs = [];
+for (const format of ["cjs", "esm", "umd"]) {
+    configs.push(
+        createConfig(format, false),
+        createConfig(format, true)
+    );
+}
 
-function createConfig(format) {
-    const isBrowser = format === "iife";
+export default configs;
 
+function createConfig(format, isProduction) {
     return {
         input: "src/index.js",
         output: {
-            file: `dist/animated-bars${isBrowser ? ".min" : ""}.js`,
+            file: `dist/${format}/animated-bars${isProduction ? ".min" : ""}.js`,
             format,
             name: "animatedBars",
             sourcemap: true
@@ -25,7 +28,7 @@ function createConfig(format) {
             }),
             resolve(),
             commonjs(),
-            isBrowser ? terser() : undefined
+            isProduction ? terser() : undefined
         ],
         onwarn: disableCircularDependencyWarnings
     };

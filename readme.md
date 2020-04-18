@@ -33,7 +33,7 @@ const chart = new animatedBars.AnimatedColumnChart(data, config);
 </script>
 ```
 
-The browser library can be found in the `dist` directory.
+The browser library can be found in the `dist/umd` directory.
 
 ## Core principles
 
