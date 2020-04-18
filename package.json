@@ -13,7 +13,9 @@
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
     "dev": "rollup -c --watch",
-    "test": "jest --verbose",
+    "lint": "eslint '*.js' '**/*.js'",
+    "test": "npm run lint && npm run test-main",
+    "test-main": "jest --verbose",
     "cover": "npm run cover-main && rm -rf coverage",
     "coveralls": "npm run cover-main && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
     "cover-main": "cross-env COVERAGE=true jest --coverage"
