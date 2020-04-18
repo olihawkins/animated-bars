@@ -32,9 +32,13 @@ function createConfig(format, isProduction) {
             name: "animatedBars",
             sourcemap: true
         },
+        // Externalise (i.e. don't bundle) d3 + other imports in CJS and ESM builds
+        external: format === "umd" ? [] : moduleId => !moduleId.startsWith("."),
         plugins: [
             babel({
-                exclude: "node_modules/**"
+                exclude: "node_modules/**",
+                // require/import runtime helpers (rather than bundle) in CJS + ESM builds
+                runtimeHelpers: format !== "umd"
             }),
             resolve(),
             commonjs(),
