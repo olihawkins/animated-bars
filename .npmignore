@@ -1,5 +1,6 @@
 # directories
 .production
+coverage
 example
 src
 test
