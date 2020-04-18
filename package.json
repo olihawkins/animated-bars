@@ -11,7 +11,7 @@
   "scripts": {
     "start": "http-server -a localhost -p 8000 -c-1",
     "build": "rollup -c",
-    "rollup": "rollup -c --watch",
+    "dev": "rollup -c --watch",
     "test": "jest --verbose"
   },
   "keywords": [
