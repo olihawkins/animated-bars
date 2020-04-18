@@ -3,39 +3,21 @@ import resolve from "@rollup/plugin-node-resolve";
 import babel from "rollup-plugin-babel";
 import { uglify } from "rollup-plugin-uglify";
 
-// Disable circular dependency warnings from D3
-// https://github.com/d3/d3-selection/issues/168
-const disableCircularDependencyWarnings = function (warning, warn) {
-    if (warning.code === "CIRCULAR_DEPENDENCY") return;
-    warn(warning);
-};
-
 export default [
-    { // ES6 Module
+    createConfig("esm"),
+    createConfig("iife")
+];
+
+function createConfig(format) {
+    const isBrowser = format === "iife";
+
+    return {
         input: "src/index.js",
         output: {
-            file: "dist/animated-bars.js",
-            format: "esm",
-            sourcemap: true,
-            sourcemapFile: "dist/animated-bars.js.map"
-        },
-        plugins: [
-            babel({
-                exclude: "node_modules/**"
-            }),
-            resolve(),
-            commonjs()
-        ],
-        onwarn: disableCircularDependencyWarnings
-    },
-    { // Browser
-        input: "src/index.js",
-        output: {
-            file: "dist/animated-bars.min.js",
-            format: "iife",
+            file: `dist/animated-bars${isBrowser ? ".min" : ""}.js`,
+            format,
             name: "animatedBars",
-            sourcemap: true,
-            sourcemapFile: "dist/animated-bars.min.js.map"
+            sourcemap: true
         },
         plugins: [
             babel({
@@ -43,8 +25,15 @@ export default [
             }),
             resolve(),
             commonjs(),
-            uglify()
+            isBrowser ? uglify() : undefined
         ],
         onwarn: disableCircularDependencyWarnings
-    }
-];
+    };
+}
+
+// Disable circular dependency warnings from D3
+// https://github.com/d3/d3-selection/issues/168
+function disableCircularDependencyWarnings(warning, warn) {
+    if (warning.code === "CIRCULAR_DEPENDENCY") return;
+    warn(warning);
+}
