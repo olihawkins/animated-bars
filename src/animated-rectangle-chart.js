@@ -2,6 +2,8 @@
 
 /* Imports ----------------------------------------------------------------- */
 
+import invariant from "tiny-invariant";
+
 import {
     checkNegativeNumber,
     checkPositiveNumber,
@@ -439,9 +441,7 @@ class AnimatedRectangleChart {
             if (! hasOwnProperty(d, "delay")) {
                 delay = 0.0;
             }
-            if (isNaN(delay) || delay < 0) {
-                throw new Error("Delay values must be positive numbers");
-            }
+            invariant(!isNaN(delay) && delay >= 0, "Delay values must be positive numbers");
             maxDelay = delay > maxDelay ? delay : maxDelay;
         });
         return maxDelay;
@@ -451,9 +451,7 @@ class AnimatedRectangleChart {
 
         const setupData = this.setupData;
 
-        if (nextData.length != setupData.length) {
-            throw new Error("New data does not have the expected length");
-        }
+        invariant(nextData.length == setupData.length, "New data does not have the expected length");
 
         const updateData = [];
 
@@ -462,19 +460,17 @@ class AnimatedRectangleChart {
             const setupItem = setupData[i];
             const nextItem = nextData[i];
 
-            if (! hasOwnProperty(setupItem, "key") ||
-                ! hasOwnProperty(nextItem, "key")) {
-                throw new Error("All data objects must have a key property");
-            }
+            invariant(
+                hasOwnProperty(setupItem, "key") && hasOwnProperty(nextItem, "key"),
+                "All data objects must have a key property"
+            );
 
-            if (! hasOwnProperty(setupItem, "value") ||
-                ! hasOwnProperty(nextItem, "value")) {
-                throw new Error("All data objects must have a value property");
-            }
+            invariant(
+                hasOwnProperty(setupItem, "value") && hasOwnProperty(nextItem, "value"),
+                "All data objects must have a value property"
+            );
 
-            if (nextItem.key != setupItem.key) {
-                throw new Error("New data does not contain the expected keys");
-            }
+            invariant(nextItem.key == setupItem.key, "New data does not contain the expected keys");
 
             updateData.push({
                 key: setupItem.key,

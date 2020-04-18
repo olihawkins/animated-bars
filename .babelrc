@@ -1,7 +1,13 @@
 {
     "presets": [["@babel/preset-env"]],
-    "plugins": [["@babel/plugin-transform-runtime", {
-        "corejs": 3,
-        "helpers": false,
-        "regenerator": true}]]
+    "plugins": [
+        ["@babel/plugin-transform-runtime", {
+            "corejs": 3,
+            "helpers": false,
+            "regenerator": true
+        }],
+        // Replace `__DEV__` with `process.env.NODE_ENV !== 'production'`
+        // and remove error messages from `invariant()` in production mode
+        "dev-expression"
+    ]
 }

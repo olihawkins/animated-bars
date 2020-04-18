@@ -2,6 +2,7 @@
 
 /* Imports ----------------------------------------------------------------- */
 
+import invariant from "tiny-invariant";
 import { getConstants } from "./constants.js";
 
 /* Constants --------------------------------------------------------------- */
@@ -17,27 +18,21 @@ function hasOwnProperty(object, property) {
 /* Function: checkNumber -------------------------------------------------- */
 
 function checkNumber(property, value) {
-    if (isNaN(value) || value === null) {
-        throw new Error(`${property} should be a number`);
-    }
+    invariant(!isNaN(value) && value !== null, `${property} should be a number`);
 }
 
 /* Function: checkNegativeNumber ------------------------------------------- */
 
 function checkNegativeNumber(property, value) {
     checkNumber(property, value);
-    if (value > 0) {
-        throw new Error(`${property} should be a negative number or zero`);
-    }
+    invariant(value <= 0, `${property} should be a negative number or zero`);
 }
 
 /* Function: checkPositiveNumber ------------------------------------------- */
 
 function checkPositiveNumber(property, value) {
     checkNumber(property, value);
-    if (value < 0) {
-        throw new Error(`${property} should be a positive number`);
-    }
+    invariant(value >= 0, `${property} should be a positive number`);
 }
 
 /* Function: checkKeyLocation ---------------------------------------------- */
@@ -49,9 +44,7 @@ function checkKeyLocation(value) {
         constants.keyLocationMax,
         constants.keyLocationZero];
 
-    if (! keyLocations.includes(value)) {
-        throw new Error(`"${value}" is not a valid keyLocation`);
-    }
+    invariant(keyLocations.includes(value), `"${value}" is not a valid keyLocation`);
 }
 
 /* Function: checkValueLocation ---------------------------------------------- */
@@ -62,9 +55,7 @@ function checkValueLocation(value) {
         constants.valueLocationStart,
         constants.valueLocationEnd];
 
-    if (! valueLocations.includes(value)) {
-        throw new Error(`"${value}" is not a valid valueLocation`);
-    }
+    invariant(valueLocations.includes(value), `"${value}" is not a valid valueLocation`);
 }
 
 /* Exports ----------------------------------------------------------------- */

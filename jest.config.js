@@ -14,10 +14,18 @@ module.exports = {
     moduleNameMapper: {
         "^animated-bars$": resolvePath()
     },
-    // Skip unit tests when testing builds
+    // Define __DEV__ when testing source code
+    // (`babel-plugin-dev-expression` does not operate when NODE_ENV=test)
+    globals: testEnv === "src" ? {__DEV__: !isProd} : undefined,
+    // Skip unit tests when testing builds.
+    // Also skip in production mode because error messages are stripped in production.
     testPathIgnorePatterns: [
         "/node_modules/",
-        ...(testEnv !== "src" ? ["/test/animated-rectangle-chart.test.js", "/test/utils.test.js"] : [])
+        ...(
+            testEnv !== "src" || isProd
+                ? ["/test/animated-rectangle-chart.test.js", "/test/utils.test.js"]
+                : []
+        )
     ]
 };
 
