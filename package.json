@@ -1,6 +1,6 @@
 {
   "name": "animated-bars",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A library for creating animated bar and column charts.",
   "main": "dist/animated-bars.js",
   "module": "dist/animated-bars.js",
