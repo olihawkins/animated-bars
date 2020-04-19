@@ -1,7 +1,7 @@
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import babel from "rollup-plugin-babel";
-import { uglify } from "rollup-plugin-uglify";
+import { terser } from "rollup-plugin-terser";
 
 // Disable circular dependency warnings from D3
 // https://github.com/d3/d3-selection/issues/168
@@ -43,7 +43,7 @@ export default [
             }),
             resolve(),
             commonjs(),
-            uglify()
+            terser()
         ],
         onwarn: disableCircularDependencyWarnings
     }
