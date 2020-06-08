@@ -14,6 +14,8 @@ function getConstants() {
         valueLocationStart: "start",
         valueLocationEnd: "end",
         classPrefix: `${classPrefix}`,
+        classTitle: `${classPrefix}-title`,
+        classSubtitle: `${classPrefix}-subtitle`,
         classValue: `${classPrefix}-value`,
         classPos: `${classPrefix}-pos`,
         classNeg: `${classPrefix}-neg`,

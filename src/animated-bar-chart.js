@@ -70,6 +70,44 @@ class AnimatedBarChart extends AnimatedRectangleChart {
                 this.margins.top +
                 this.margins.bottom);
 
+        // Add background
+        if (this.background !== "") {
+            this.selections.svg
+                .append("rect")
+                .attr("fill", this.background)
+                .attr("width",
+                    this.width +
+                    this.margins.left +
+                    this.margins.right)
+                .attr("height",
+                    this.height +
+                    this.margins.top +
+                    this.margins.bottom);
+        }
+
+        // Add title
+        if (this.title !== "") {
+            this.selections.svg.append("text")
+                .attr("class", constants.classTitle)
+                .text(this.title)
+                .attr("x", this.titleOffsetX)
+                .attr("y", this.titleOffsetY)
+                .style("font-size", `${this.titleSize}pt`)
+                .style("fill", this.titleColor);
+        }
+
+        // Add subtitle
+        if (this.subtitle !== "") {
+            this.selections.svg.append("text")
+                .attr("class", constants.classSubtitle)
+                .text(this.subtitle)
+                .attr("x", this.subtitleOffsetX)
+                .attr("y", this.titleOffsetY + this.subtitleOffsetY) 
+                .style("font-size", `${this.subtitleSize}pt`)
+                .style("fill", this.subtitleColor);
+        }
+
+        // Create data group
         this.selections.dataGroup = this.selections.svg
             .append("g")
             .attr("transform", `translate(
@@ -115,7 +153,8 @@ class AnimatedBarChart extends AnimatedRectangleChart {
 
         keyAxis.scale(this.keyScale)
             .tickSizeInner(this.keyTickSizeInner)
-            .tickSizeOuter(this.keyTickSizeOuter);
+            .tickSizeOuter(this.keyTickSizeOuter)
+            .tickPadding(this.keyTickPadding);
 
         // Add key axis
         this.selections.keyAxisGroup = this.selections.dataGroup.append("g")
@@ -123,6 +162,21 @@ class AnimatedBarChart extends AnimatedRectangleChart {
             .attr("transform", `translate(
                 ${this.getKeyLocationTransform()}, 0)`)
             .call(keyAxis);
+
+        // Set fonts and colors for text on the key axis
+        this.selections.keyAxisGroup
+            .selectAll("text")
+            .style("font-size", `${this.keyTextSize}pt`)
+            .style("fill", this.keyTextColor)
+
+        // Set colors for paths and lines on the key axis
+        this.selections.keyAxisGroup
+            .selectAll("path")
+            .style("color", this.keyLineColor)
+
+        this.selections.keyAxisGroup
+            .selectAll("line")
+            .style("color", this.keyLineColor)
 
         // Add key axis title
         if (this.keyTitle !== "") {
@@ -132,6 +186,8 @@ class AnimatedBarChart extends AnimatedRectangleChart {
                 .attr("x", 0 - (this.height / 2))
                 .attr("class", constants.classKeyTitle)
                 .style("text-anchor", "middle")
+                .style("font-size", `${this.keyTitleSize}pt`)
+                .style("fill", this.keyTitleColor)
                 .text(this.keyTitle);
         }
 
@@ -145,6 +201,7 @@ class AnimatedBarChart extends AnimatedRectangleChart {
             .ticks(this.valueTicks)
             .tickSizeInner(this.valueTickSizeInner)
             .tickSizeOuter(this.valueTickSizeOuter)
+            .tickPadding(this.valueTickPadding)
             .tickFormat(d3.format(this.valueFormat));
 
         // Add value axis
@@ -154,6 +211,21 @@ class AnimatedBarChart extends AnimatedRectangleChart {
                 ${this.getValueLocationTransform()})`)
             .call(valueAxis);
 
+        // Set fonts and colors for text on the value axis
+        this.selections.valueAxisGroup
+            .selectAll("text")
+            .style("font-size", `${this.valueTextSize}pt`)
+            .style("fill", this.valueTextColor)
+
+        // Set colors for paths and lines on the value axis
+        this.selections.valueAxisGroup
+            .selectAll("path")
+            .style("color", this.valueLineColor)
+
+        this.selections.valueAxisGroup
+            .selectAll("line")
+            .style("color", this.valueLineColor)
+
         // Add value axis title
         if (this.valueTitle !== "") {
             this.selections.dataGroup.append("text")
@@ -162,6 +234,8 @@ class AnimatedBarChart extends AnimatedRectangleChart {
                     ${this.getValueTitleTransform()})`)
                 .attr("class", constants.classValueTitle)
                 .style("text-anchor", "middle")
+                .style("font-size", `${this.valueTitleSize}pt`)
+                .style("fill", this.valueTitleColor)
                 .text(this.valueTitle);
         }
 

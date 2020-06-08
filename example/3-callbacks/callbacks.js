@@ -61,6 +61,7 @@ d3.csv("uk-population-1971-2018.csv").then((data) => {
         valuePaddingInner: 0,
         valuePaddingOuter: 0,
         valueTitleOffset: 60,
+        shapeRendering: "crispEdges",
         transitionTime: 500,
         pauseTime: 500
     };

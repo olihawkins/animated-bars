@@ -920,6 +920,8 @@ function getConstants() {
     valueLocationStart: "start",
     valueLocationEnd: "end",
     classPrefix: "".concat(classPrefix),
+    classTitle: "".concat(classPrefix, "-title"),
+    classSubtitle: "".concat(classPrefix, "-subtitle"),
     classValue: "".concat(classPrefix, "-value"),
     classPos: "".concat(classPrefix, "-pos"),
     classNeg: "".concat(classPrefix, "-neg"),
@@ -4626,22 +4628,36 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
     this.width = config.dimensions.width - config.margins.left - config.margins.right;
     this.height = config.dimensions.height - config.margins.top - config.margins.bottom;
     this.colors = config.colors;
-    this.keyLocation = config.keyLocation;
+    this.background = config.background;
+    this.title = config.title, this.titleSize = config.titleSize, this.titleColor = config.titleColor, this.titleOffsetX = config.titleOffsetX, this.titleOffsetY = config.titleOffsetY, this.subtitle = config.subtitle, this.subtitleSize = config.subtitleSize, this.subtitleColor = config.subtitleColor, this.subtitleOffsetX = config.subtitleOffsetX, this.subtitleOffsetY = config.subtitleOffsetY, this.keyLocation = config.keyLocation;
     this.keyTitle = config.keyTitle;
+    this.keyTitleSize = config.keyTitleSize;
+    this.keyTitleColor = config.keyTitleColor;
     this.keyTitleOffset = config.keyTitleOffset;
+    this.keyTextSize = config.keyTextSize;
+    this.keyTextColor = config.keyTextColor;
+    this.keyLineColor = config.keyLineColor;
     this.keyTickSizeInner = config.keyTickSizeInner;
     this.keyTickSizeOuter = config.keyTickSizeOuter;
+    this.keyTickPadding = config.keyTickPadding;
     this.valueLocation = config.valueLocation;
     this.valueTitle = config.valueTitle;
+    this.valueTitleSize = config.valueTitleSize;
+    this.valueTitleColor = config.valueTitleColor;
     this.valueTitleOffset = config.valueTitleOffset;
     this.valueMin = config.valueMin;
     this.valueMax = config.valueMax;
+    this.valueTextSize = config.valueTextSize;
+    this.valueTextColor = config.valueTextColor;
+    this.valueLineColor = config.valueLineColor;
     this.valueTicks = config.valueTicks;
     this.valueTickSizeInner = config.valueTickSizeInner;
     this.valueTickSizeOuter = config.valueTickSizeOuter;
+    this.valueTickPadding = config.valueTickPadding;
     this.valueFormat = config.valueFormat;
     this.valuePaddingInner = config.valuePaddingInner;
     this.valuePaddingOuter = config.valuePaddingOuter;
+    this.shapeRendering = config.shapeRendering;
     this.transitionTime = config.transitionTime;
     this.pauseTime = config.pauseTime; // Set up animation control
 
@@ -4780,22 +4796,46 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
           posRgb: "#55bbee",
           negRgb: "#ee5599"
         },
+        background: "",
+        title: "",
+        titleSize: 22,
+        titleColor: "#000000",
+        titleOffsetX: 20,
+        titleOffsetY: 40,
+        subtitle: "",
+        subtitleSize: 17,
+        subtitleColor: "#000000",
+        subtitleOffsetX: 20,
+        subtitleOffsetY: 30,
         keyLocation: "min",
         keyTitle: "Key title",
+        keyTitleSize: 11,
+        keyTitleColor: "#000000",
         keyTitleOffset: 50,
+        keyTextSize: 11,
+        keyTextColor: "#000000",
+        keyLineColor: "#000000",
         keyTickSizeInner: 6,
         keyTickSizeOuter: 6,
+        keyTickPadding: 3,
         valueLocation: "start",
         valueTitle: "Value title",
+        valueTitleSize: 11,
+        valueTitleColor: "#000000",
         valueTitleOffset: 50,
         valueMin: -100,
         valueMax: 100,
+        valueTextSize: 11,
+        valueTextColor: "#000000",
+        valueLineColor: "#000000",
         valueTicks: 5,
         valueTickSizeInner: 6,
         valueTickSizeOuter: 6,
+        valueTickPadding: 3,
         valueFormat: "",
         valuePaddingInner: 0.1,
         valuePaddingOuter: 0.1,
+        shapeRendering: "auto",
         transitionTime: 1000,
         pauseTime: 1000
       };
@@ -4878,6 +4918,59 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
 
       if (!hasOwnProperty$1(config.colors, "negRgb")) {
         config.colors.negRgb = defaults.colors.negRgb;
+      } // Background color
+
+
+      if (!hasOwnProperty$1(config, "background")) {
+        config.background = defaults.background;
+      } // Title
+
+
+      if (!hasOwnProperty$1(config, "title")) {
+        config.title = defaults.title;
+      } // Title size
+
+
+      if (!hasOwnProperty$1(config, "titleSize")) {
+        config.titleSize = defaults.titleSize;
+      } // Title color
+
+
+      if (!hasOwnProperty$1(config, "titleColor")) {
+        config.titleColor = defaults.titleColor;
+      } // Title offsets
+
+
+      if (!hasOwnProperty$1(config, "titleOffsetX")) {
+        config.titleOffsetX = defaults.titleOffsetX;
+      }
+
+      if (!hasOwnProperty$1(config, "titleOffsetY")) {
+        config.titleOffsetY = defaults.titleOffsetY;
+      } // Subtitle
+
+
+      if (!hasOwnProperty$1(config, "subtitle")) {
+        config.subtitle = defaults.subtitle;
+      } // Subtitle size
+
+
+      if (!hasOwnProperty$1(config, "subtitleSize")) {
+        config.subtitleSize = defaults.subtitleSize;
+      } // Subtitle color
+
+
+      if (!hasOwnProperty$1(config, "subtitleColor")) {
+        config.subtitleColor = defaults.subtitleColor;
+      } // Subtitle offsets
+
+
+      if (!hasOwnProperty$1(config, "subtitleOffsetX")) {
+        config.subtitleOffsetX = defaults.subtitleOffsetX;
+      }
+
+      if (!hasOwnProperty$1(config, "subtitleOffsetY")) {
+        config.subtitleOffsetY = defaults.subtitleOffsetY;
       } // Key location
 
 
@@ -4889,6 +4982,16 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
 
       if (!hasOwnProperty$1(config, "keyTitle")) {
         config.keyTitle = defaults.keyTitle;
+      } // Key title size
+
+
+      if (!hasOwnProperty$1(config, "keyTitleSize")) {
+        config.keyTitleSize = defaults.keyTitleSize;
+      } // Key title color
+
+
+      if (!hasOwnProperty$1(config, "keyTitleColor")) {
+        config.keyTitleColor = defaults.keyTitleColor;
       } // Key title offset
 
 
@@ -4896,7 +4999,22 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
         config.keyTitleOffset = defaults.keyTitleOffset;
       }
 
-      checkPositiveNumber("keyTitleOffset", config.keyTitleOffset); // Key tick size inner
+      checkPositiveNumber("keyTitleOffset", config.keyTitleOffset); // Key text size
+
+      if (!hasOwnProperty$1(config, "keyTextSize")) {
+        config.keyTextSize = defaults.keyTextSize;
+      } // Key text color
+
+
+      if (!hasOwnProperty$1(config, "keyTextColor")) {
+        config.keyTextColor = defaults.keyTextColor;
+      } // Key line color
+
+
+      if (!hasOwnProperty$1(config, "keyLineColor")) {
+        config.keyLineColor = defaults.keyLineColor;
+      } // Key tick size inner
+
 
       if (!hasOwnProperty$1(config, "keyTickSizeInner")) {
         config.keyTickSizeInner = defaults.keyTickSizeInner;
@@ -4908,7 +5026,13 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
         config.keyTickSizeOuter = defaults.keyTickSizeOuter;
       }
 
-      checkPositiveNumber("keyTickSizeOuter", config.keyTickSizeOuter); // Value axis
+      checkPositiveNumber("keyTickSizeOuter", config.keyTickSizeOuter); // Key tick padding
+
+      if (!hasOwnProperty$1(config, "keyTickPadding")) {
+        config.keyTickPadding = defaults.keyTickPadding;
+      }
+
+      checkPositiveNumber("keyTickPadding", config.keyTickPadding); // Value axis
 
       if (!hasOwnProperty$1(config, "valueLocation")) {
         config.valueLocation = defaults.valueLocation;
@@ -4918,6 +5042,16 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
 
       if (!hasOwnProperty$1(config, "valueTitle")) {
         config.valueTitle = defaults.valueTitle;
+      } // Value title size
+
+
+      if (!hasOwnProperty$1(config, "valueTitleSize")) {
+        config.valueTitleSize = defaults.valueTitleSize;
+      } // Value title color
+
+
+      if (!hasOwnProperty$1(config, "valueTitleColor")) {
+        config.valueTitleColor = defaults.valueTitleColor;
       } // Value title offset
 
 
@@ -4937,7 +5071,22 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
         config.valueMax = defaults.valueMax;
       }
 
-      checkPositiveNumber("valueMax", config.valueMax); // Value ticks
+      checkPositiveNumber("valueMax", config.valueMax); // Value text size
+
+      if (!hasOwnProperty$1(config, "valueTextSize")) {
+        config.valueTextSize = defaults.valueTextSize;
+      } // Value text color
+
+
+      if (!hasOwnProperty$1(config, "valueTextColor")) {
+        config.valueTextColor = defaults.valueTextColor;
+      } // Value line color
+
+
+      if (!hasOwnProperty$1(config, "valueLineColor")) {
+        config.valueLineColor = defaults.valueLineColor;
+      } // Value ticks
+
 
       if (!hasOwnProperty$1(config, "valueTicks")) {
         config.valueTicks = defaults.valueTicks;
@@ -4955,7 +5104,13 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
         config.valueTickSizeOuter = defaults.valueTickSizeOuter;
       }
 
-      checkPositiveNumber("valueTickSizeOuter", config.valueTickSizeOuter); // Value format
+      checkPositiveNumber("valueTickSizeOuter", config.valueTickSizeOuter); // Key tick padding
+
+      if (!hasOwnProperty$1(config, "valueTickPadding")) {
+        config.valueTickPadding = defaults.valueTickPadding;
+      }
+
+      checkPositiveNumber("valueTickPadding", config.valueTickPadding); // Value format
 
       if (!hasOwnProperty$1(config, "valueFormat")) {
         config.valueFormat = defaults.valueFormat;
@@ -4972,7 +5127,12 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
         config.valuePaddingOuter = defaults.valuePaddingOuter;
       }
 
-      checkPositiveNumber("valuePaddingOuter", config.valuePaddingOuter); // Transition time
+      checkPositiveNumber("valuePaddingOuter", config.valuePaddingOuter); // Shape rendering
+
+      if (!hasOwnProperty$1(config, "shapeRendering")) {
+        config.shapeRendering = defaults.shapeRendering;
+      } // Transition time
+
 
       if (!hasOwnProperty$1(config, "transitionTime")) {
         config.transitionTime = defaults.transitionTime;
@@ -5151,7 +5311,23 @@ var AnimatedBarChart = /*#__PURE__*/function (_AnimatedRectangleCha) {
       // Get update data using initial data
       var updateData = this.getUpdateData(this.setupData); // Create svg
 
-      this.selections.svg = d3.select("#".concat(this.element)).append("svg").attr("width", this.width + this.margins.left + this.margins.right).attr("height", this.height + this.margins.top + this.margins.bottom);
+      this.selections.svg = d3.select("#".concat(this.element)).append("svg").attr("width", this.width + this.margins.left + this.margins.right).attr("height", this.height + this.margins.top + this.margins.bottom); // Add background
+
+      if (this.background !== "") {
+        this.selections.svg.append("rect").attr("fill", this.background).attr("width", this.width + this.margins.left + this.margins.right).attr("height", this.height + this.margins.top + this.margins.bottom);
+      } // Add title
+
+
+      if (this.title !== "") {
+        this.selections.svg.append("text").attr("class", constants$1.classTitle).text(this.title).attr("x", this.titleOffsetX).attr("y", this.titleOffsetY).style("font-size", "".concat(this.titleSize, "pt")).style("fill", this.titleColor);
+      } // Add subtitle
+
+
+      if (this.subtitle !== "") {
+        this.selections.svg.append("text").attr("class", constants$1.classSubtitle).text(this.subtitle).attr("x", this.subtitleOffsetX).attr("y", this.titleOffsetY + this.subtitleOffsetY).style("font-size", "".concat(this.subtitleSize, "pt")).style("fill", this.subtitleColor);
+      } // Create data group
+
+
       this.selections.dataGroup = this.selections.svg.append("g").attr("transform", concat$2(_context2 = "translate(\n                ".concat(this.margins.left, ",\n                ")).call(_context2, this.margins.top, ")")); // Create bars
 
       this.selections.dataGroup.selectAll(".".concat(constants$1.classValue)).data(updateData).enter().append("rect").attr("shape-rendering", "crispEdges").attr("class", function (d) {
@@ -5178,24 +5354,34 @@ var AnimatedBarChart = /*#__PURE__*/function (_AnimatedRectangleCha) {
       }); // Create key axis
 
       var keyAxis = this.keyLocation == constants$1.keyLocationMax ? d3.axisRight() : d3.axisLeft();
-      keyAxis.scale(this.keyScale).tickSizeInner(this.keyTickSizeInner).tickSizeOuter(this.keyTickSizeOuter); // Add key axis
+      keyAxis.scale(this.keyScale).tickSizeInner(this.keyTickSizeInner).tickSizeOuter(this.keyTickSizeOuter).tickPadding(this.keyTickPadding); // Add key axis
 
-      this.selections.keyAxisGroup = this.selections.dataGroup.append("g").attr("class", constants$1.classKeyAxis).attr("transform", "translate(\n                ".concat(this.getKeyLocationTransform(), ", 0)")).call(keyAxis); // Add key axis title
+      this.selections.keyAxisGroup = this.selections.dataGroup.append("g").attr("class", constants$1.classKeyAxis).attr("transform", "translate(\n                ".concat(this.getKeyLocationTransform(), ", 0)")).call(keyAxis); // Set fonts and colors for text on the key axis
+
+      this.selections.keyAxisGroup.selectAll("text").style("font-size", "".concat(this.keyTextSize, "pt")).style("fill", this.keyTextColor); // Set colors for paths and lines on the key axis
+
+      this.selections.keyAxisGroup.selectAll("path").style("color", this.keyLineColor);
+      this.selections.keyAxisGroup.selectAll("line").style("color", this.keyLineColor); // Add key axis title
 
       if (this.keyTitle !== "") {
-        this.selections.dataGroup.append("text").attr("transform", "rotate(-90)").attr("y", this.getKeyTitleTransform()).attr("x", 0 - this.height / 2).attr("class", constants$1.classKeyTitle).style("text-anchor", "middle").text(this.keyTitle);
+        this.selections.dataGroup.append("text").attr("transform", "rotate(-90)").attr("y", this.getKeyTitleTransform()).attr("x", 0 - this.height / 2).attr("class", constants$1.classKeyTitle).style("text-anchor", "middle").style("font-size", "".concat(this.keyTitleSize, "pt")).style("fill", this.keyTitleColor).text(this.keyTitle);
       } // Create value axis
 
 
       var valueAxis = this.valueLocation == constants$1.valueLocationEnd ? d3.axisBottom() : d3.axisTop();
-      valueAxis.scale(this.valueScale).ticks(this.valueTicks).tickSizeInner(this.valueTickSizeInner).tickSizeOuter(this.valueTickSizeOuter).tickFormat(d3.format(this.valueFormat)); // Add value axis
+      valueAxis.scale(this.valueScale).ticks(this.valueTicks).tickSizeInner(this.valueTickSizeInner).tickSizeOuter(this.valueTickSizeOuter).tickPadding(this.valueTickPadding).tickFormat(d3.format(this.valueFormat)); // Add value axis
 
-      this.selections.valueAxisGroup = this.selections.dataGroup.append("g").attr("class", constants$1.classValueAxis).attr("transform", "translate(0,\n                ".concat(this.getValueLocationTransform(), ")")).call(valueAxis); // Add value axis title
+      this.selections.valueAxisGroup = this.selections.dataGroup.append("g").attr("class", constants$1.classValueAxis).attr("transform", "translate(0,\n                ".concat(this.getValueLocationTransform(), ")")).call(valueAxis); // Set fonts and colors for text on the value axis
+
+      this.selections.valueAxisGroup.selectAll("text").style("font-size", "".concat(this.valueTextSize, "pt")).style("fill", this.valueTextColor); // Set colors for paths and lines on the value axis
+
+      this.selections.valueAxisGroup.selectAll("path").style("color", this.valueLineColor);
+      this.selections.valueAxisGroup.selectAll("line").style("color", this.valueLineColor); // Add value axis title
 
       if (this.valueTitle !== "") {
         var _context4;
 
-        this.selections.dataGroup.append("text").attr("transform", concat$2(_context4 = "translate(\n                    ".concat(this.width / 2, ",\n                    ")).call(_context4, this.getValueTitleTransform(), ")")).attr("class", constants$1.classValueTitle).style("text-anchor", "middle").text(this.valueTitle);
+        this.selections.dataGroup.append("text").attr("transform", concat$2(_context4 = "translate(\n                    ".concat(this.width / 2, ",\n                    ")).call(_context4, this.getValueTitleTransform(), ")")).attr("class", constants$1.classValueTitle).style("text-anchor", "middle").style("font-size", "".concat(this.valueTitleSize, "pt")).style("fill", this.valueTitleColor).text(this.valueTitle);
       }
 
       this.created = true;
@@ -5445,10 +5631,26 @@ var AnimatedColumnChart = /*#__PURE__*/function (_AnimatedRectangleCha) {
       // Get update data using initial data
       var updateData = this.getUpdateData(this.setupData); // Create svg
 
-      this.selections.svg = d3.select("#".concat(this.element)).append("svg").attr("width", this.width + this.margins.left + this.margins.right).attr("height", this.height + this.margins.top + this.margins.bottom);
+      this.selections.svg = d3.select("#".concat(this.element)).append("svg").attr("width", this.width + this.margins.left + this.margins.right).attr("height", this.height + this.margins.top + this.margins.bottom); // Add background
+
+      if (this.background !== "") {
+        this.selections.svg.append("rect").attr("fill", this.background).attr("width", this.width + this.margins.left + this.margins.right).attr("height", this.height + this.margins.top + this.margins.bottom);
+      } // Add title
+
+
+      if (this.title !== "") {
+        this.selections.svg.append("text").attr("class", constants$2.classTitle).text(this.title).attr("x", this.titleOffsetX).attr("y", this.titleOffsetY).style("font-size", "".concat(this.titleSize, "pt")).style("fill", this.titleColor);
+      } // Add subtitle
+
+
+      if (this.subtitle !== "") {
+        this.selections.svg.append("text").attr("class", constants$2.classSubtitle).text(this.subtitle).attr("x", this.subtitleOffsetX).attr("y", this.titleOffsetY + this.subtitleOffsetY).style("font-size", "".concat(this.subtitleSize, "pt")).style("fill", this.subtitleColor);
+      } // Create data group
+
+
       this.selections.dataGroup = this.selections.svg.append("g").attr("transform", concat$2(_context2 = "translate(\n                ".concat(this.margins.left, ",\n                ")).call(_context2, this.margins.top, ")")); // Create bars
 
-      this.selections.dataGroup.selectAll(".".concat(constants$2.classValue)).data(updateData).enter().append("rect").attr("shape-rendering", "crispEdges").attr("class", function (d) {
+      this.selections.dataGroup.selectAll(".".concat(constants$2.classValue)).data(updateData).enter().append("rect").attr("shape-rendering", this.shapeRendering).attr("class", function (d) {
         var _context3;
 
         var cn = d.nextValue < 0 ? constants$2.classNeg : constants$2.classPos;
@@ -5472,24 +5674,34 @@ var AnimatedColumnChart = /*#__PURE__*/function (_AnimatedRectangleCha) {
       }); // Create key axis
 
       var keyAxis = this.keyLocation == constants$2.keyLocationMax ? d3.axisTop() : d3.axisBottom();
-      keyAxis.scale(this.keyScale).tickSizeInner(this.keyTickSizeInner).tickSizeOuter(this.keyTickSizeOuter); // Add key axis
+      keyAxis.scale(this.keyScale).tickSizeInner(this.keyTickSizeInner).tickSizeOuter(this.keyTickSizeOuter).tickPadding(this.keyTickPadding); // Add key axis
 
-      this.selections.keyAxisGroup = this.selections.dataGroup.append("g").attr("class", constants$2.classKeyAxis).attr("transform", "translate(0,\n                ".concat(this.getKeyLocationTransform(), ")")).call(keyAxis); // Add key axis title
+      this.selections.keyAxisGroup = this.selections.dataGroup.append("g").attr("class", constants$2.classKeyAxis).attr("transform", "translate(0,\n                ".concat(this.getKeyLocationTransform(), ")")).call(keyAxis); // Set fonts and colors for text on the key axis
+
+      this.selections.keyAxisGroup.selectAll("text").style("font-size", "".concat(this.keyTextSize, "pt")).style("fill", this.keyTextColor); // Set colors for paths and lines on the key axis
+
+      this.selections.keyAxisGroup.selectAll("path").style("color", this.keyLineColor);
+      this.selections.keyAxisGroup.selectAll("line").style("color", this.keyLineColor); // Add key axis title
 
       if (this.keyTitle !== "") {
         var _context4;
 
-        this.selections.dataGroup.append("text").attr("transform", concat$2(_context4 = "translate(\n                    ".concat(this.width / 2, ",\n                    ")).call(_context4, this.getKeyTitleTransform(), ")")).attr("class", constants$2.classKeyTitle).style("text-anchor", "middle").text(this.keyTitle);
+        this.selections.dataGroup.append("text").attr("transform", concat$2(_context4 = "translate(\n                    ".concat(this.width / 2, ",\n                    ")).call(_context4, this.getKeyTitleTransform(), ")")).attr("class", constants$2.classKeyTitle).style("text-anchor", "middle").style("font-size", "".concat(this.keyTitleSize, "pt")).style("fill", this.keyTitleColor).text(this.keyTitle);
       } // Create value axis
 
 
       var valueAxis = this.valueLocation == constants$2.valueLocationEnd ? d3.axisRight() : d3.axisLeft();
-      valueAxis.scale(this.valueScale).ticks(this.valueTicks).tickSizeInner(this.valueTickSizeInner).tickSizeOuter(this.valueTickSizeOuter).tickFormat(d3.format(this.valueFormat)); // Add value axis
+      valueAxis.scale(this.valueScale).ticks(this.valueTicks).tickSizeInner(this.valueTickSizeInner).tickSizeOuter(this.valueTickSizeOuter).tickPadding(this.valueTickPadding).tickFormat(d3.format(this.valueFormat)); // Add value axis
 
-      this.selections.valueAxisGroup = this.selections.dataGroup.append("g").attr("class", constants$2.classValueAxis).attr("transform", "translate(\n                ".concat(this.getValueLocationTransform(), ", 0)")).call(valueAxis); // Add value axis title
+      this.selections.valueAxisGroup = this.selections.dataGroup.append("g").attr("class", constants$2.classValueAxis).attr("transform", "translate(\n                ".concat(this.getValueLocationTransform(), ", 0)")).call(valueAxis); // Set fonts and colors for text on the value axis
+
+      this.selections.valueAxisGroup.selectAll("text").style("font-size", "".concat(this.valueTextSize, "pt")).style("fill", this.valueTextColor); // Set colors for paths and lines on the value axis
+
+      this.selections.valueAxisGroup.selectAll("path").style("color", this.valueLineColor);
+      this.selections.valueAxisGroup.selectAll("line").style("color", this.valueLineColor); // Add value axis title
 
       if (this.valueTitle !== "") {
-        this.selections.dataGroup.append("text").attr("transform", "rotate(-90)").attr("y", this.getValueTitleTransform()).attr("x", 0 - this.height / 2).attr("class", constants$2.classValueTitle).style("text-anchor", "middle").text(this.valueTitle);
+        this.selections.dataGroup.append("text").attr("transform", "rotate(-90)").attr("y", this.getValueTitleTransform()).attr("x", 0 - this.height / 2).attr("class", constants$2.classValueTitle).style("text-anchor", "middle").style("font-size", "".concat(this.valueTitleSize, "pt")).style("fill", this.valueTitleColor).text(this.valueTitle);
       }
 
       this.created = true;

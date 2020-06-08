@@ -81,6 +81,7 @@ const config = {
     valueMin: -80,
     valueMax: 80,
     valueTicks: 9,
+    shapeRendering: "crispEdges",
     transitionTime: 500
 };
 
