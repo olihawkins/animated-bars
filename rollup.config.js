@@ -25,8 +25,7 @@ export default [
                 exclude: "node_modules/**"
             }),
             resolve(),
-            commonjs(),
-            serve()
+            commonjs()
         ],
         onwarn: disableCircularDependencyWarnings
     },
@@ -45,7 +44,8 @@ export default [
             }),
             resolve(),
             commonjs(),
-            terser()
+            terser(),
+            serve()
         ],
         onwarn: disableCircularDependencyWarnings
     }
