@@ -372,6 +372,8 @@ class AnimatedRectangleChart {
             config.titleSize = defaults.titleSize;
         }
 
+        checkPositiveNumber("titleSize", config.titleSize);
+
         // Title color
         if(! hasOwnProperty(config, "titleColor")) {
             config.titleColor = defaults.titleColor;
@@ -382,9 +384,13 @@ class AnimatedRectangleChart {
             config.titleOffsetX = defaults.titleOffsetX;
         }
 
+        checkPositiveNumber("titleOffsetX", config.titleOffsetX);
+
         if(! hasOwnProperty(config, "titleOffsetY")) {
             config.titleOffsetY = defaults.titleOffsetY;
         }
+
+        checkPositiveNumber("titleOffsetY", config.titleOffsetY);
 
         // Subtitle
         if(! hasOwnProperty(config, "subtitle")) {
@@ -396,6 +402,8 @@ class AnimatedRectangleChart {
             config.subtitleSize = defaults.subtitleSize;
         }
 
+        checkPositiveNumber("subtitleSize", config.subtitleSize);
+
         // Subtitle color
         if(! hasOwnProperty(config, "subtitleColor")) {
             config.subtitleColor = defaults.subtitleColor;
@@ -406,9 +414,13 @@ class AnimatedRectangleChart {
             config.subtitleOffsetX = defaults.subtitleOffsetX;
         }
 
+        checkPositiveNumber("subtitleOffsetX", config.subtitleOffsetX);
+
         if(! hasOwnProperty(config, "subtitleOffsetY")) {
             config.subtitleOffsetY = defaults.subtitleOffsetY;
         }
+
+        checkPositiveNumber("subtitleOffsetY", config.subtitleOffsetY);
 
         // Key location
         if(! hasOwnProperty(config, "keyLocation")) {
@@ -427,6 +439,8 @@ class AnimatedRectangleChart {
             config.keyTitleSize = defaults.keyTitleSize;
         }
 
+        checkPositiveNumber("keyTitleSize", config.keyTitleSize);
+
         // Key title color
         if(! hasOwnProperty(config, "keyTitleColor")) {
             config.keyTitleColor = defaults.keyTitleColor;
@@ -443,6 +457,8 @@ class AnimatedRectangleChart {
         if(! hasOwnProperty(config, "keyTextSize")) {
             config.keyTextSize = defaults.keyTextSize;
         }
+
+        checkPositiveNumber("keyTextSize", config.keyTextSize);
 
         // Key text color
         if(! hasOwnProperty(config, "keyTextColor")) {
@@ -492,6 +508,8 @@ class AnimatedRectangleChart {
             config.valueTitleSize = defaults.valueTitleSize;
         }        
 
+        checkPositiveNumber("valueTitleSize", config.valueTitleSize);
+
         // Value title color
         if(! hasOwnProperty(config, "valueTitleColor")) {
             config.valueTitleColor = defaults.valueTitleColor;
@@ -522,6 +540,8 @@ class AnimatedRectangleChart {
         if(! hasOwnProperty(config, "valueTextSize")) {
             config.valueTextSize = defaults.valueTextSize;
         }
+
+        checkPositiveNumber("valueTextSize", config.valueTextSize);
 
         // Value text color
         if(! hasOwnProperty(config, "valueTextColor")) {

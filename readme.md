@@ -202,25 +202,48 @@ The default configuration values for both the `AnimatedBarChart` and `AnimatedCo
         posRgb: "#55bbee",
         negRgb: "#ee5599"
     },
+    background: "",
+    title: "",
+    titleSize: 22,
+    titleColor: "#000000",
+    titleOffsetX: 20,
+    titleOffsetY: 40,
+    subtitle: "",
+    subtitleSize: 17,
+    subtitleColor: "#000000",
+    subtitleOffsetX: 20,
+    subtitleOffsetY: 30,
     keyLocation: "min",
     keyTitle: "Key title",
+    keyTitleSize: 11,
+    keyTitleColor: "#000000",
     keyTitleOffset: 50,
+    keyTextSize: 11,
+    keyTextColor: "#000000",
+    keyLineColor: "#000000",
     keyTickSizeInner: 6,
     keyTickSizeOuter: 6,
-    valueLocation: // "start" or "end" depending on the class
+    keyTickPadding: 3,
+    valueLocation: "start", // "start" or "end" depending on the class
     valueTitle: "Value title",
+    valueTitleSize: 11,
+    valueTitleColor: "#000000",
     valueTitleOffset: 50,
     valueMin: -100,
     valueMax: 100,
+    valueTextSize: 11,
+    valueTextColor: "#000000",
+    valueLineColor: "#000000",
     valueTicks: 5,
     valueTickSizeInner: 6,
     valueTickSizeOuter: 6,
+    valueTickPadding: 3,
     valueFormat: "",
     valuePaddingInner: 0.1,
     valuePaddingOuter: 0.1,
+    shapeRendering: "auto",
     transitionTime: 1000,
     pauseTime: 1000
-};
 }
 
 ```
@@ -233,30 +256,66 @@ The properties are:
 
 - __dimensions__ - An object containing __width__ and __height__ properties. These are the dimensions of the SVG for the chart.
 
-- __margins__ - An object containing __top__, __right__, __bottom__ and __left__ properties. These are the widths of the margins for the chart according to the [D3 margin convention](https://bl.ocks.org/mbostock/3019563). Note that the plot area of the chart is equal to the dimensions minus the margins. In other words, the larger the margins, the smaller the plot area. The default values for the margins are large enough to accomodate the tick labels and the axis labels at standard font-sizes, but you may need to increase or reduce them to suit your circumstances.
+- __margins__ - An object containing __top__, __right__, __bottom__ and __left__ properties. These are the widths of the margins for the chart according to the [D3 margin convention](https://bl.ocks.org/mbostock/3019563). Note that the plot area of the chart is equal to the dimensions minus the margins. In other words, the larger the margins, the smaller the plot area. These margins should be made large enough to accommodate the labels specified elsewhere in the configuration, such as the title, the subtitle, the axis titles, and the tick labels. The default values for the margins are large enough to accomodate the axis titles and the tick labels at standard font-sizes, but you may need to increase or reduce them to suit your needs.
 
 - __colors__ - An object containing __posRgb__ and __negRgb__ properties. These two properties should contain strings representing RGB color values, such as `"#55bbee"`, or `"rgb(238, 85, 153)"`. __posRgb__ defines the color of bars that show positive values. __negRgb__ defines the color of bars that show negative values. If you want all bars to have the same color irrespective of whether they are positive or negative, set these to the same value.
+
+- __background__ - A string representing an RGB color value for the chart background. If this string is set, a `rect` element is added to the chart as a background layer, filling the entire svg with the given background color. If the string is empty, a `rect` element is not appended as a background layer.
+
+- __title__ - A string containing the __title__ for the chart. This can be set to `null` if a title is not needed.
+
+- __titleSize__ - An integer specifying the font-size of the __title__. You can control this value using [styles](#styling) but it is provided as a configuration option so that you can scale the text based on the size of the chart's container.
+
+- __titleColor__ - A string representing an RGB color value for the __title__.
+
+- __titleOffsetX__ - A number specifying the distance of the __title__ from the left-hand edge of the chart.
+
+- __titleOffsetY__ - A number specifying the distance of the __title__ from the top edge of the chart.
+
+- __subtitle__ - A string containing the subtitle for the chart. This can be set to `null` if a subtitle is not needed.
+
+- __subtitleSize__ - An integer specifying the font-size of the __subtitle__. You can control this value using [styles](#styling) but it is provided as a configuration option so that you can scale the text based on the size of the chart's container.
+
+- __subtitleColor__ - A string representing an RGB color value for the __subtitle__.
+
+- __subtitleOffsetX__ - A number specifying the distance of the __subtitle__ from the left-hand edge of the chart.
+
+- __subtitleOffsetY__ - A number specifying the distance of the __subtitle__ from the title.
 
 - __keyLocation__ - A string specifying the location of the __keyAxis__. The __keyLocation__ is defined in relation to the values on the __valueAxis__. Valid locations are:
     - `min` -  The __keyAxis__ is located at the minimun value of the __valueAxis__.
     - `zero` -  The __keyAxis__ is located at the zero value of the __valueAxis__.
     - `max` -  The __keyAxis__ is located at the maximum value of the __valueAxis__.
 
-
 - __keyTitle__ - A string containing the title for the __keyAxis__. This can be set to `null` if a __keyTitle__ is not needed.
 
+- __keyTitleSize__ - An integer specifying the font-size of the __keyTitle__. You can control this value using [styles](#styling) but it is provided as a configuration option so that you can scale the text based on the size of the chart's container.
+
+- __keyTitleColor__ - A string representing an RGB color value for the __keyTitle__.
+
 - __keyTitleOffset__ - A number specifying the distance of the __keyTitle__ from the __keyAxis__. The optimum distance will depend on font-sizes, tick labels, margins etc.
+
+- __keyTextSize__ - An integer specifying the font-size of the tick labels on the __keyAxis__. You can control this value using [styles](#styling) but it is provided as a configuration option so that you can scale the text based on the size of the chart's container.
+
+- __keyTextColor__ - A string representing an RGB color value for the tick labels on the __keyAxis__.
+
+- __keyLineColor__ - A string representing an RGB color value for the axis line and ticks on the __keyAxis__.
 
 - __keyTickSizeInner__ - A number specifying the length of the tick lines associated with the tick labels on the __keyAxis__.
 
 - __keyTickSizeOuter__ A number specifying the length of the tick lines at either end of the __keyAxis__. Setting this to zero removes the tick lines that bookend the __keyAxis__.
 
+- __keyTickPadding__ - A number specifying the distance between the ticks and the tick labels on the __keyAxis__.
+
 - __valueLocation__ - A string specifying the location of the __valueAxis__. The __valueLocation__ is defined in relation to the __keyAxis__. Valid locations are:
     - `start` -  The __valueAxis__ is located at the start of the __keyAxis__.
     - `end` -  The __valueAxis__ is located at the end of the __keyAxis__.
 
-
 - __valueTitle__ - A string containing the title for the __valueAxis__. This can be set to `null` if a __valueTitle__ is not needed.
+
+- __valueTitleSize__ - An integer specifying the font-size of the __valueTitle__. You can control this value using [styles](#styling) but it is provided as a configuration option so that you can scale the text based on the size of the chart's container.
+
+- __valueTitleColor__ - A string representing an RGB color value for the __valueTitle__.
 
 - __valueTitleOffset__ - A number specifying the distance of the __valueTitle__ from the __valueAxis__. The optimum distance will depend on font-sizes, tick labels, margins etc.
 
@@ -264,17 +323,27 @@ The properties are:
 
 - __valueMax__ - A number specifying the maximum value of the __valueAxis__.
 
+- __valueTextSize__ - An integer specifying the font-size of the tick labels on the __valueAxis__. You can control this value using [styles](#styling) but it is provided as a configuration option so that you can scale the text based on the size of the chart's container.
+
+- __valueTextColor__ - A string representing an RGB color value for the tick labels on the __valueAxis__.
+
+- __valueLineColor__ - A string representing an RGB color value for the axis line and ticks on the __valueAxis__.
+
 - __valueTicks__ - A number specifying the suggested number of ticks for the __valueAxis__. Note that because the domain of the __valueAxis__ is set explicitly with __valueMin__ and __valueMax__, the exact number of ticks given by this argument may not be honoured exactly. D3 aims for evenly spaced ticks on round, readable values, and the __valueTicks__ argument is treated as a hint towards this end. The desired number of ticks are typically shown if they create intervals that are multiples of 2, 5 or 10 on the __valueAxis__. The animated bar and column charts have methods for removing individual tick lines and labels from both axes, which can help with more advanced tick formatting requirements if __valueTicks__ doesn't give you exactly what you want on its own.
 
 - __valueTickSizeInner__ - A number specifying the length of the tick lines associated with the tick labels on the __valueAxis__.
 
 - __valueTickSizeOuter__ A number specifying the length of the tick lines at either end of the __valueAxis__. Setting this to zero removes the tick lines that bookend the __valueAxis__. Note that there may be _both_ inner and outer ticks at the ends of the __valueAxis__, so to remove _all_ ticks in these positions you may need to set both __valueTickSizeInner__ and __valueTickSizeOuter__ to zero, or use the __removeValueAxisTicks__ method of the chart to selectively remove the inner ticks at the ends of the __valueAxis__. See [methods](#methods) below for further details.
 
+- __valueTickPadding__ - A number specifying the distance between the ticks and the tick labels on the __valueAxis__.
+
 - __valueFormat__ - A string representing a [D3 format specifier](https://github.com/d3/d3-format) for the valueAxis. This allows you to present values on the __valueAxis__ as percentages, currency, using a comma separator for thousands etc.
 
 - __valuePaddingInner__ - A number specifying the size of the padding to insert between the bars in the chart.
 
 - __valuePaddingOuter__ - A number specifying the size of the padding to insert between the bars and the edges of the chart.
+
+- __shapeRendering__ - A string that represents the value passed to the `shape-rendering` attribute of the `rect` elements used to draw the bars on the chart. Valid values are "auto", "optimizeSpeed", "crispEdges", and "geometricPrecision". The default value is "auto", which is fine in most cases. Using "geometricPrecision" can be useful if you want the most even spacing between the bars, while "crispEdges" is useful when you have no gaps between the bars or when you want to animate all the bars dropping to zero.
 
 - __transitionTime__ - A number specifying the default duration in milliseconds of the transition from one value to the next when a chart is updated with new data. See the section on [transitions](#transitions) for further information on the timing of transitions.
 
@@ -376,6 +445,10 @@ To do this kind of additional customisation you may sometimes need to import add
 ## Styling
 
 The library adds classes to some chart elements, which you can use to style parts of the chart with CSS. All of the classes are prefixed `ab-` to denote they were added by animated-bars. Classes you can safely target to style different parts of the chart are:
+
+- `.ab-title` - Add styles to the text of the __title__.
+
+- `.ab-subtitle` - Add styles to the text of the __subtitle__.
 
 - `.ab-key-axis` - Add styles to the text of the __keyAxis__.
 

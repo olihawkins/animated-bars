@@ -297,6 +297,186 @@ test("parseConfig accepts a positive number for margins.left", () => {
     expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
 });
 
+test("parseConfig throws error for null titleSize", () => {
+    const error = "titleSize should be a number";
+    const config = { titleSize: null };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for string titleSize", () => {
+    const error = "titleSize should be a number";
+    const config = { titleSize: "string" };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for negative titleSize", () => {
+    const error = "titleSize should be a positive number";
+    const config = { titleSize: -1 };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig accepts a zero for titleSize", () => {
+    const error = "titleSize should be a positive number";
+    const config = { titleSize: 0 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig accepts a positive number for titleSize", () => {
+    const error = "titleSize should be a positive number";
+    const config = { titleSize: 1 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig throws error for null titleOffsetX", () => {
+    const error = "titleOffsetX should be a number";
+    const config = { titleOffsetX: null };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for string titleOffsetX", () => {
+    const error = "titleOffsetX should be a number";
+    const config = { titleOffsetX: "string" };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for negative titleOffsetX", () => {
+    const error = "titleOffsetX should be a positive number";
+    const config = { titleOffsetX: -1 };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig accepts a zero for titleOffsetX", () => {
+    const error = "titleOffsetX should be a positive number";
+    const config = { titleOffsetX: 0 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig accepts a positive number for titleOffsetX", () => {
+    const error = "titleOffsetX should be a positive number";
+    const config = { titleOffsetX: 1 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig throws error for null titleOffsetY", () => {
+    const error = "titleOffsetY should be a number";
+    const config = { titleOffsetY: null };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for string titleOffsetY", () => {
+    const error = "titleOffsetY should be a number";
+    const config = { titleOffsetY: "string" };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for negative titleOffsetY", () => {
+    const error = "titleOffsetY should be a positive number";
+    const config = { titleOffsetY: -1 };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig accepts a zero for titleOffsetY", () => {
+    const error = "titleOffsetY should be a positive number";
+    const config = { titleOffsetY: 0 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig accepts a positive number for titleOffsetY", () => {
+    const error = "titleOffsetY should be a positive number";
+    const config = { titleOffsetY: 1 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig throws error for null subtitleSize", () => {
+    const error = "subtitleSize should be a number";
+    const config = { subtitleSize: null };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for string subtitleSize", () => {
+    const error = "subtitleSize should be a number";
+    const config = { subtitleSize: "string" };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for negative subtitleSize", () => {
+    const error = "subtitleSize should be a positive number";
+    const config = { subtitleSize: -1 };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig accepts a zero for subtitleSize", () => {
+    const error = "subtitleSize should be a positive number";
+    const config = { subtitleSize: 0 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig accepts a positive number for subtitleSize", () => {
+    const error = "subtitleSize should be a positive number";
+    const config = { subtitleSize: 1 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig throws error for null subtitleOffsetX", () => {
+    const error = "subtitleOffsetX should be a number";
+    const config = { subtitleOffsetX: null };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for string subtitleOffsetX", () => {
+    const error = "subtitleOffsetX should be a number";
+    const config = { subtitleOffsetX: "string" };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for negative subtitleOffsetX", () => {
+    const error = "subtitleOffsetX should be a positive number";
+    const config = { subtitleOffsetX: -1 };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig accepts a zero for subtitleOffsetX", () => {
+    const error = "subtitleOffsetX should be a positive number";
+    const config = { subtitleOffsetX: 0 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig accepts a positive number for subtitleOffsetX", () => {
+    const error = "subtitleOffsetX should be a positive number";
+    const config = { subtitleOffsetX: 1 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig throws error for null subtitleOffsetY", () => {
+    const error = "subtitleOffsetY should be a number";
+    const config = { subtitleOffsetY: null };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for string subtitleOffsetY", () => {
+    const error = "subtitleOffsetY should be a number";
+    const config = { subtitleOffsetY: "string" };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for negative subtitleOffsetY", () => {
+    const error = "subtitleOffsetY should be a positive number";
+    const config = { subtitleOffsetY: -1 };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig accepts a zero for subtitleOffsetY", () => {
+    const error = "subtitleOffsetY should be a positive number";
+    const config = { subtitleOffsetY: 0 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig accepts a positive number for subtitleOffsetY", () => {
+    const error = "subtitleOffsetY should be a positive number";
+    const config = { subtitleOffsetY: 1 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
 test("parseConfig throws error for a null keyLocation", () => {
     const nullValue = null;
     const error = `"${nullValue}" is not a valid keyLocation`;
@@ -316,6 +496,36 @@ test("parseConfig throws error for an invalid keyLocation", () => {
     const error = `"${invalidString}" is not a valid keyLocation`;
     const config = { keyLocation: invalidString };
     expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for null keyTitleSize", () => {
+    const error = "keyTitleSize should be a number";
+    const config = { keyTitleSize: null };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for string keyTitleSize", () => {
+    const error = "keyTitleSize should be a number";
+    const config = { keyTitleSize: "string" };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for negative keyTitleSize", () => {
+    const error = "keyTitleSize should be a positive number";
+    const config = { keyTitleSize: -1 };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig accepts a zero for keyTitleSize", () => {
+    const error = "keyTitleSize should be a positive number";
+    const config = { keyTitleSize: 0 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig accepts a positive number for keyTitleSize", () => {
+    const error = "keyTitleSize should be a positive number";
+    const config = { keyTitleSize: 1 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
 });
 
 test("parseConfig throws error for null keyTitleOffset", () => {
@@ -345,6 +555,36 @@ test("parseConfig accepts a zero for keyTitleOffset", () => {
 test("parseConfig accepts a positive number for keyTitleOffset", () => {
     const error = "keyTitleOffset should be a positive number";
     const config = { keyTitleOffset: 1 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig throws error for null keyTextSize", () => {
+    const error = "keyTextSize should be a number";
+    const config = { keyTextSize: null };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for string keyTextSize", () => {
+    const error = "keyTextSize should be a number";
+    const config = { keyTextSize: "string" };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for negative keyTextSize", () => {
+    const error = "keyTextSize should be a positive number";
+    const config = { keyTextSize: -1 };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig accepts a zero for keyTextSize", () => {
+    const error = "keyTextSize should be a positive number";
+    const config = { keyTextSize: 0 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig accepts a positive number for keyTextSize", () => {
+    const error = "keyTextSize should be a positive number";
+    const config = { keyTextSize: 1 };
     expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
 });
 
@@ -408,6 +648,36 @@ test("parseConfig accepts a positive number for keyTickSizeOuter", () => {
     expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
 });
 
+test("parseConfig throws error for null keyTickPadding", () => {
+    const error = "keyTickPadding should be a number";
+    const config = { keyTickPadding: null };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for string keyTickPadding", () => {
+    const error = "keyTickPadding should be a number";
+    const config = { keyTickPadding: "string" };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for negative keyTickPadding", () => {
+    const error = "keyTickPadding should be a positive number";
+    const config = { keyTickPadding: -1 };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig accepts a zero for keyTickPadding", () => {
+    const error = "keyTickPadding should be a positive number";
+    const config = { keyTickPadding: 0 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig accepts a positive number for keyTickPadding", () => {
+    const error = "keyTickPadding should be a positive number";
+    const config = { keyTickPadding: 1 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
 test("parseConfig throws error for a null valueLocation", () => {
     const nullValue = null;
     const error = `"${nullValue}" is not a valid valueLocation`;
@@ -427,6 +697,36 @@ test("parseConfig throws error for an invalid valueLocation", () => {
     const error = `"${invalidString}" is not a valid valueLocation`;
     const config = { valueLocation: invalidString };
     expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for null valueTitleSize", () => {
+    const error = "valueTitleSize should be a number";
+    const config = { valueTitleSize: null };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for string valueTitleSize", () => {
+    const error = "valueTitleSize should be a number";
+    const config = { valueTitleSize: "string" };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for negative valueTitleSize", () => {
+    const error = "valueTitleSize should be a positive number";
+    const config = { valueTitleSize: -1 };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig accepts a zero for valueTitleSize", () => {
+    const error = "valueTitleSize should be a positive number";
+    const config = { valueTitleSize: 0 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig accepts a positive number for valueTitleSize", () => {
+    const error = "valueTitleSize should be a positive number";
+    const config = { valueTitleSize: 1 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
 });
 
 test("parseConfig throws error for null valueTitleOffset", () => {
@@ -519,6 +819,37 @@ test("parseConfig accepts a positive number for valueMax", () => {
     expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
 });
 
+test("parseConfig throws error for null valueTextSize", () => {
+    const error = "valueTextSize should be a number";
+    const config = { valueTextSize: null };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for string valueTextSize", () => {
+    const error = "valueTextSize should be a number";
+    const config = { valueTextSize: "string" };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for negative valueTextSize", () => {
+    const error = "valueTextSize should be a positive number";
+    const config = { valueTextSize: -1 };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig accepts a zero for valueTextSize", () => {
+    const error = "valueTextSize should be a positive number";
+    const config = { valueTextSize: 0 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig accepts a positive number for valueTextSize", () => {
+    const error = "valueTextSize should be a positive number";
+    const config = { valueTextSize: 1 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+
 test("parseConfig throws error for null valueTicks", () => {
     const error = "valueTicks should be a number";
     const config = { valueTicks: null };
@@ -606,6 +937,36 @@ test("parseConfig accepts a zero for valueTickSizeOuter", () => {
 test("parseConfig accepts a positive number for valueTickSizeOuter", () => {
     const error = "valueTickSizeOuter should be a positive number";
     const config = { valueTickSizeOuter: 1 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig throws error for null valueTickPadding", () => {
+    const error = "valueTickPadding should be a number";
+    const config = { valueTickPadding: null };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for string valueTickPadding", () => {
+    const error = "valueTickPadding should be a number";
+    const config = { valueTickPadding: "string" };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig throws error for negative valueTickPadding", () => {
+    const error = "valueTickPadding should be a positive number";
+    const config = { valueTickPadding: -1 };
+    expect(() => chart.parseConfig(config, defaults)).toThrow(error);
+});
+
+test("parseConfig accepts a zero for valueTickPadding", () => {
+    const error = "valueTickPadding should be a positive number";
+    const config = { valueTickPadding: 0 };
+    expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
+});
+
+test("parseConfig accepts a positive number for valueTickPadding", () => {
+    const error = "valueTickPadding should be a positive number";
+    const config = { valueTickPadding: 1 };
     expect(() => chart.parseConfig(config, defaults)).not.toThrow(error);
 });
 

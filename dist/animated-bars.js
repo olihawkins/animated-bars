@@ -4933,8 +4933,9 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
 
       if (!hasOwnProperty$1(config, "titleSize")) {
         config.titleSize = defaults.titleSize;
-      } // Title color
+      }
 
+      checkPositiveNumber("titleSize", config.titleSize); // Title color
 
       if (!hasOwnProperty$1(config, "titleColor")) {
         config.titleColor = defaults.titleColor;
@@ -4945,10 +4946,13 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
         config.titleOffsetX = defaults.titleOffsetX;
       }
 
+      checkPositiveNumber("titleOffsetX", config.titleOffsetX);
+
       if (!hasOwnProperty$1(config, "titleOffsetY")) {
         config.titleOffsetY = defaults.titleOffsetY;
-      } // Subtitle
+      }
 
+      checkPositiveNumber("titleOffsetY", config.titleOffsetY); // Subtitle
 
       if (!hasOwnProperty$1(config, "subtitle")) {
         config.subtitle = defaults.subtitle;
@@ -4957,8 +4961,9 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
 
       if (!hasOwnProperty$1(config, "subtitleSize")) {
         config.subtitleSize = defaults.subtitleSize;
-      } // Subtitle color
+      }
 
+      checkPositiveNumber("subtitleSize", config.subtitleSize); // Subtitle color
 
       if (!hasOwnProperty$1(config, "subtitleColor")) {
         config.subtitleColor = defaults.subtitleColor;
@@ -4969,10 +4974,13 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
         config.subtitleOffsetX = defaults.subtitleOffsetX;
       }
 
+      checkPositiveNumber("subtitleOffsetX", config.subtitleOffsetX);
+
       if (!hasOwnProperty$1(config, "subtitleOffsetY")) {
         config.subtitleOffsetY = defaults.subtitleOffsetY;
-      } // Key location
+      }
 
+      checkPositiveNumber("subtitleOffsetY", config.subtitleOffsetY); // Key location
 
       if (!hasOwnProperty$1(config, "keyLocation")) {
         config.keyLocation = defaults.keyLocation;
@@ -4987,8 +4995,9 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
 
       if (!hasOwnProperty$1(config, "keyTitleSize")) {
         config.keyTitleSize = defaults.keyTitleSize;
-      } // Key title color
+      }
 
+      checkPositiveNumber("keyTitleSize", config.keyTitleSize); // Key title color
 
       if (!hasOwnProperty$1(config, "keyTitleColor")) {
         config.keyTitleColor = defaults.keyTitleColor;
@@ -5003,8 +5012,9 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
 
       if (!hasOwnProperty$1(config, "keyTextSize")) {
         config.keyTextSize = defaults.keyTextSize;
-      } // Key text color
+      }
 
+      checkPositiveNumber("keyTextSize", config.keyTextSize); // Key text color
 
       if (!hasOwnProperty$1(config, "keyTextColor")) {
         config.keyTextColor = defaults.keyTextColor;
@@ -5047,8 +5057,9 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
 
       if (!hasOwnProperty$1(config, "valueTitleSize")) {
         config.valueTitleSize = defaults.valueTitleSize;
-      } // Value title color
+      }
 
+      checkPositiveNumber("valueTitleSize", config.valueTitleSize); // Value title color
 
       if (!hasOwnProperty$1(config, "valueTitleColor")) {
         config.valueTitleColor = defaults.valueTitleColor;
@@ -5075,8 +5086,9 @@ var AnimatedRectangleChart = /*#__PURE__*/function () {
 
       if (!hasOwnProperty$1(config, "valueTextSize")) {
         config.valueTextSize = defaults.valueTextSize;
-      } // Value text color
+      }
 
+      checkPositiveNumber("valueTextSize", config.valueTextSize); // Value text color
 
       if (!hasOwnProperty$1(config, "valueTextColor")) {
         config.valueTextColor = defaults.valueTextColor;
